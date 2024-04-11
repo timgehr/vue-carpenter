@@ -1,7 +1,29 @@
-# Vue 3 + Vite
+# vue-carpenter
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This plugin creates a masonry-adjacent layout for images.
 
-## Recommended IDE Setup
+## Import into Vue 3 project
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+<template>
+    <Carpenter :photos="photos" />
+</template>
+
+<script setup>
+import { Carpenter } from 'vue-carpenter'
+import "vue-carpenter/dist/style.css";
+import photos from "./photos.json";
+</script>
+
+## Create your photos.json
+
+[
+    {
+        "title": "Disco",
+        "url": "https://i.imgur.com/NcgCvIq.jpg"
+    },
+    {
+        "title": "Splash",
+        "url": "https://i.imgur.com/0S2pmXh.jpg"
+    },
+    //etc...
+]
