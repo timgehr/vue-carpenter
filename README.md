@@ -1,7 +1,42 @@
-# Vue 3 + Vite
+# vue-carpenter
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## What is carpetry
 
-## Recommended IDE Setup
+This plugin creates a masonry-lite layout for images using the bare minimum javascript. Without the need for caluclating positions, vue-carpenter gets the job done quick, meaning your masonry layout loads in the DOM  far faster than true masonry libraries.
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (previously Volar) and disable Vetur
+Because of the naive nature of this approach, this library is best used when your images are all similar dimensions. The carpenter approach doesn't know which columns are the longest, so columns can end at different points. Hence the name carpenter; it's not perfect, but it can do most of masonry!
+
+## Import into Vue 3 project
+```
+<template>
+    <Carpenter :photos="photos" />
+</template>
+
+<script setup>
+import { Carpenter } from 'vue-carpenter'
+import "vue-carpenter/dist/style.css";
+import photos from "./photos.json";
+</script>
+```
+## Create your photos.json
+```
+[
+    {
+        "title": "Disco",
+        "url": "https://i.imgur.com/NcgCvIq.jpg"
+    },
+    {
+        "title": "Splash",
+        "url": "https://i.imgur.com/0S2pmXh.jpg"
+    },
+    //etc...
+]
+```
+
+...and you're done!
+
+## What's Next
+* Support for custom styles (sizing, spacing, colors around borders)
+* A fast, true masonry approach so users can use this single library for multiple use cases in case some galleries are uniform image sizes and others have varying sizes
+* More documentation. This was rippped from my personal website, so documentation and use cases are minimal at the moment.
+* Better json support so users don't have to make their own json files for images
